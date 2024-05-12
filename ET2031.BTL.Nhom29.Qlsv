@@ -25,7 +25,6 @@ public:
         getline(cin, birthday);
         cout << "Nhap gioi tinh: ";
         cin >> gioitinh;
-        cout << "\n";
     }
 
     void hienthitt() {
@@ -160,7 +159,7 @@ int GiangVien::demgv   = 0;
 
 int main() {
     int select_person, lua_chon_sinhvien, lua_chon_quanlythongtincanhan, lua_chon_giangvien, lua_chon_phongdaotao;
-    int nhaptt; 
+    int nhaptt, quaylai; 
     SinhVien x;
     GiangVien y;
     PhongDaoTao z; 
@@ -216,13 +215,37 @@ int main() {
                                                     system("cls");
                                                     break;
                                                 case 1://Nhập thông tin cá nhân
-                                                    system("cls");
+                                                    cout << endl;
+                                                    cout << "=========------ HUST ------=========" << endl;
+                                                    cout << "=====PHAN MEM QUAN LY SINH VIEN=====" << endl;
+                                                    cout << "========= MENU SINH VIEN ===========" << endl;
+                                                    cout << "=====QUAN LY THONG TIN CA NHAN=====" << endl;
+                                                    cout << "1.Nhap thong tin ca nhan       " << endl;
+                                                   // system("cls");
                                                     x.nhaptt ();
+                                                    do{
+                                                    cout<< "CHON 0 DE QUAY LAI  ";
+                                                    cin>>quaylai;
+                                                    if (quaylai==0) break;
+                                                    }while (quaylai!=0);
+                                                    system("cls");
                                                     break;
                                                 case 2://Xem thông tin cá nhân
-                                                    system("cls");
+                                                    cout << endl;
+                                                    cout << "=========------ HUST ------=========" << endl;
+                                                    cout << "=====PHAN MEM QUAN LY SINH VIEN=====" << endl;
+                                                    cout << "========= MENU SINH VIEN ===========" << endl;
+                                                    cout << "=====QUAN LY THONG TIN CA NHAN=====" << endl;
+                                                    cout << "2.Xem thong tin ca nhan      " << endl;
+                                                  //  system("cls");
                                                     x.inmssv();
                                                     x.hienthitt ();
+                                                    do{
+                                                    cout<< "CHON 0 DE QUAY LAI  ";
+                                                    cin>>quaylai;
+                                                    if (quaylai==0) break;
+                                                    }while (quaylai!=0);
+                                                    system("cls");
                                                     break;
                                                 default:// Nhập sai tác vụ
                                                     system("cls");
@@ -367,6 +390,7 @@ int main() {
 
     return 0;
 }
+
 
 
 
