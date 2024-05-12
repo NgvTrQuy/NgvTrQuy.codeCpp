@@ -202,7 +202,7 @@ int main() {
                                         cout << "=========------ HUST ------=========" << endl;
                                         cout << "=====PHAN MEM QUAN LY SINH VIEN=====" << endl;
                                         cout << "========= MENU SINH VIEN ===========" << endl;
-                                        cout << "=====QUAN LY THONG TIN CA NHAN=====" << endl;
+                                        cout << "=====QUAN LY THONG TIN CA NHAN======" << endl;
                                         cout << "1.Nhap thong tin ca nhan       " << endl;
                                         cout << "2.Xem thong tin ca nhan      " << endl;
                                         cout << "CHON 0 DE QUAY LAI           " << endl;
@@ -219,7 +219,7 @@ int main() {
                                                     cout << "=========------ HUST ------=========" << endl;
                                                     cout << "=====PHAN MEM QUAN LY SINH VIEN=====" << endl;
                                                     cout << "========= MENU SINH VIEN ===========" << endl;
-                                                    cout << "=====QUAN LY THONG TIN CA NHAN=====" << endl;
+                                                    cout << "=====QUAN LY THONG TIN CA NHAN======" << endl;
                                                     cout << "1.Nhap thong tin ca nhan       " << endl;
                                                    // system("cls");
                                                     x.nhaptt ();
@@ -235,7 +235,7 @@ int main() {
                                                     cout << "=========------ HUST ------=========" << endl;
                                                     cout << "=====PHAN MEM QUAN LY SINH VIEN=====" << endl;
                                                     cout << "========= MENU SINH VIEN ===========" << endl;
-                                                    cout << "=====QUAN LY THONG TIN CA NHAN=====" << endl;
+                                                    cout << "=====QUAN LY THONG TIN CA NHAN======" << endl;
                                                     cout << "2.Xem thong tin ca nhan      " << endl;
                                                   //  system("cls");
                                                     x.inmssv();
@@ -291,8 +291,8 @@ int main() {
                                         cout << endl;
                                         cout << "=========------ HUST ------=========" << endl;
                                         cout << "=====PHAN MEM QUAN LY SINH VIEN=====" << endl;
-                                        cout << "========= MENU GIANG VIEN ===========" << endl;
-                                        cout << "=====QUAN LY THONG TIN CA NHAN=====" << endl;
+                                        cout << "========= MENU GIANG VIEN ==========" << endl;
+                                        cout << "=====QUAN LY THONG TIN CA NHAN======" << endl;
                                         cout << "1.Nhap thong tin ca nhan       " << endl;
                                         cout << "2.Xem thong tin ca nhan      " << endl;
                                         cout << "CHON 0 DE QUAY LAI           " << endl;
@@ -390,6 +390,7 @@ int main() {
 
     return 0;
 }
+
 
 
 
