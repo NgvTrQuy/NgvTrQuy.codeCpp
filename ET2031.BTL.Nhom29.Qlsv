@@ -55,6 +55,7 @@ public:
         tenhocphan = "xx";
         diemqt = 0;
         diemck = 0;
+        diemhp= 0;
         diemhploai1=0;
         diemhploai2=0;
         diemhploai3=0;
@@ -255,7 +256,12 @@ int main() {
                                     }while(lua_chon_quanlythongtincanhan!=0);
                                         break;
                                 case 2://Xem điểm học phần
-                                        system("cls");
+                                        cout << endl;
+                                        cout << "=========------ HUST ------=========" << endl;
+                                        cout << "=====PHAN MEM QUAN LY SINH VIEN=====" << endl;
+                                        cout << "========= MENU SINH VIEN ===========" << endl;
+                                        cout << "=====QUAN LY THONG TIN CA NHAN=====" << endl;
+                                        cout << "2.Xem diem hoc phan      " << endl;
                                         x.xemdiem ();
                                          do{
                                                 cout<< "CHON 0 DE QUAY LAI  ";
