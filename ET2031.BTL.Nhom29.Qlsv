@@ -64,12 +64,11 @@ public:
     ~diemhocphan() {}
 
     void nhaptthocphan(){
-        cout << "Nhap ma hoc phan " ;
-       // getline (cin, mahocphan);
-       cin>> mahocphan;
-        cout << "Nhap ten hoc phan ";
-        cin>> tenhocphan;
-      //  getline (cin, tenhocphan);
+         cout << "Nhap ma hoc phan: ";
+    cin >> mahocphan;
+    cout << "Nhap ten hoc phan: ";
+    cin.ignore(); // Để loại bỏ ký tự '\n' còn lại trong buffer
+    getline(cin, tenhocphan);
     }
 
     void nhapdiem() {
