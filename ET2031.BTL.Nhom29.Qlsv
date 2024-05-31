@@ -55,7 +55,6 @@ public:
         tenhocphan = "xx";
         diemqt = 0;
         diemck = 0;
-        diemhp= 0;
         diemhploai1=0;
         diemhploai2=0;
         diemhploai3=0;
@@ -64,18 +63,19 @@ public:
     ~diemhocphan() {}
 
     void nhaptthocphan(){
-         cout << "Nhap ma hoc phan: ";
-    cin >> mahocphan;
-    cout << "Nhap ten hoc phan: ";
-    cin.ignore(); // Để loại bỏ ký tự '\n' còn lại trong buffer
-    getline(cin, tenhocphan);
+        cout << "Nhap ma hoc phan "<<endl;
+       // getline (cin, mahocphan);
+       cin>> mahocphan;
+        cout << "Nhap ten hoc phan ";
+        cin>> tenhocphan;
+      //  getline (cin, tenhocphan);
     }
 
     void nhapdiem() {
-        cout << "Nhap diem cho sinh vien:"<<endl ;
+        cout << "Nhap diem cho sinh vien:\n"<<endl ;
         cout << "Diem qua trinh: ";
         cin >> diemqt;
-        cout << "Diem cuoi ki: ";
+        cout << "\nDiem cuoi ki: ";
         cin >> diemck;
         cout << "Chon he so [QT-CK] :  1.[03-07] 2.[04-06] 3.[05-05]: ";
         cin >> heso;
@@ -85,15 +85,15 @@ public:
         switch (heso) {
             case 1:
                 diemhp= diemhploai1;
-               // cout << "\nDiem ket thuc hoc phan: " << diemhp<<endl ;
+                cout << "\nDiem ket thuc hoc phan: " << diemhp<<endl ;
                 break;
             case 2:
                 diemhp= diemhploai2;
-               // cout << "\nDiem ket thuc hoc phan: " << diemhp<<endl;
+                cout << "\nDiem ket thuc hoc phan: " << diemhp<<endl;
                 break;
             case 3:
                 diemhp= diemhploai3;
-              //  cout << "\nDiem ket thuc hoc phan: " << diemhp<<endl ;
+                cout << "\nDiem ket thuc hoc phan: " << diemhp<<endl ;
                 break;
         }
     }
@@ -255,19 +255,9 @@ int main() {
                                     }while(lua_chon_quanlythongtincanhan!=0);
                                         break;
                                 case 2://Xem điểm học phần
-                                        cout << endl;
-                                        cout << "=========------ HUST ------=========" << endl;
-                                        cout << "=====PHAN MEM QUAN LY SINH VIEN=====" << endl;
-                                        cout << "========= MENU SINH VIEN ===========" << endl;
-                                        cout << "=====QUAN LY THONG TIN CA NHAN=====" << endl;
-                                        cout << "2.Xem diem hoc phan      " << endl;
+                                        system("cls");
+
                                         x.xemdiem ();
-                                         do{
-                                                cout<< "CHON 0 DE QUAY LAI  ";
-                                                cin>>quaylai;
-                                                if (quaylai==0) break;
-                                                }while (quaylai!=0);
-                                                system("cls");
                                         break;
                                 default:// Nhập sai tác vụ
                                         system("cls");
@@ -301,7 +291,7 @@ int main() {
                                         cout << endl;
                                         cout << "=========------ HUST ------=========" << endl;
                                         cout << "=====PHAN MEM QUAN LY SINH VIEN=====" << endl;
-                                        cout << "========= MENU GIANG VIEN ==========" << endl;
+                                        cout << "========= MENU GIANG VIEN ===========" << endl;
                                         cout << "=====QUAN LY THONG TIN CA NHAN=====" << endl;
                                         cout << "1.Nhap thong tin ca nhan       " << endl;
                                         cout << "2.Xem thong tin ca nhan      " << endl;
@@ -315,37 +305,13 @@ int main() {
                                                     system("cls");
                                                     break;
                                                 case 1://Nhập thông tin cá nhân
-                                                    cout << endl;
-                                                    cout << "=========------ HUST ------=========" << endl;
-                                                    cout << "=====PHAN MEM QUAN LY SINH VIEN=====" << endl;
-                                                    cout << "========= MENU GIANG VIEN ==========" << endl;
-                                                    cout << "=====QUAN LY THONG TIN CA NHAN======" << endl;
-                                                    cout << "1.Nhap thong tin ca nhan       " << endl;
-                                                   // system("cls");
-                                                    y.nhaptt ();
-                                                    do{
-                                                    cout<< "CHON 0 DE QUAY LAI  ";
-                                                    cin>>quaylai;
-                                                    if (quaylai==0) break;
-                                                    }while (quaylai!=0);
                                                     system("cls");
+                                                    y.nhaptt ();
                                                     break;
                                                 case 2://Xem thông tin cá nhân
-                                                     cout << endl;
-                                                    cout << "=========------ HUST ------=========" << endl;
-                                                    cout << "=====PHAN MEM QUAN LY SINH VIEN=====" << endl;
-                                                    cout << "========= MENU GIANG VIEN ==========" << endl;
-                                                    cout << "=====QUAN LY THONG TIN CA NHAN======" << endl;
-                                                     cout <<"=====QUAN LY THONG TIN CA NHAN======" << endl;
-                                                    cout << "2.Xem thong tin ca nhan      " << endl;
+                                                    system("cls");
                                                     y.inmsgv();
                                                     y.hienthitt ();
-                                                    do{
-                                                    cout<< "CHON 0 DE QUAY LAI  ";
-                                                    cin>>quaylai;
-                                                    if (quaylai==0) break;
-                                                    }while (quaylai!=0);
-                                                    system("cls");
                                                     break;
                                                 default:// Nhập sai tác vụ
                                                     system("cls");
@@ -364,10 +330,9 @@ int main() {
                                        // cout << "CHON 0 DE QUAY LAI           " << endl;
                                         x.nhaptthocphan();
                                         x.nhapdiem();
-
                                         x.xemdiem();
                                         do{
-                                                    cout<< "\nCHON 0 DE QUAY LAI  ";
+                                                    cout<< "CHON 0 DE QUAY LAI  ";
                                                     cin>>quaylai;
                                                     if (quaylai==0) break;
                                                     }while (quaylai!=0);
@@ -375,10 +340,19 @@ int main() {
 
                                         break;
                                 case 3://Thông tin giảng dạy của giảng viên
-
-
-
-
+                                        cout << endl;
+                                        cout << "=========------ HUST ------=========" << endl;
+                                        cout << "=====PHAN MEM QUAN LY SINH VIEN=====" << endl;
+                                        cout << "========= MENU GIANG VIEN ==========" << endl;
+                                        cout << "======= THONG TIN GIANG DAY  =======" << endl;
+                                       // cout << "CHON 0 DE QUAY LAI           " << endl;
+                                       
+                                        do{
+                                                    cout<< "CHON 0 DE QUAY LAI  ";
+                                                    cin>>quaylai;
+                                                    if (quaylai==0) break;
+                                                    }while (quaylai!=0);
+                                                    system("cls");
                                         break;
                                 default:// Nhập sai tác vụ
                                         system("cls");
@@ -405,19 +379,49 @@ int main() {
                         switch (lua_chon_phongdaotao)
                             {
                                 case 0://Quay lại trang trước
-                                    system("cls");
+                                       
                                     break;
                                 case 1://Quản lý sinh viên
-                                    system("cls");
-
+                                        cout << endl;
+                                        cout << "=========------ HUST ------=========" << endl;
+                                        cout << "=====PHAN MEM QUAN LY SINH VIEN=====" << endl;
+                                        cout << "======= MENU PHONG DAO TAO =========" << endl;
+                                        cout << "======== QUAN LY SINH VIEN ========= " << endl;
+                                         do{
+                                                    cout<< "CHON 0 DE QUAY LAI  ";
+                                                    cin>>quaylai;
+                                                    if (quaylai==0) break;
+                                                    }while (quaylai!=0);
+                                                    system("cls");
+                                        break;
                                     break;
                                 case 2://Quản lý giảng viên
-                                    system("cls");
-
+                                     cout << endl;
+                                        cout << "=========------ HUST ------=========" << endl;
+                                        cout << "=====PHAN MEM QUAN LY SINH VIEN=====" << endl;
+                                        cout << "======= MENU PHONG DAO TAO =========" << endl;
+                                        cout << "======== QUAN LY GIANG VIEN ========" << endl;
+                                         do{
+                                                    cout<< "CHON 0 DE QUAY LAI  ";
+                                                    cin>>quaylai;
+                                                    if (quaylai==0) break;
+                                                    }while (quaylai!=0);
+                                                    system("cls");
+                                        break;
                                     break;
                                 case 3 ://Quản lý học phần
-                                    system("cls");
-
+                                        cout << endl;
+                                        cout << "=========------ HUST ------=========" << endl;
+                                        cout << "=====PHAN MEM QUAN LY SINH VIEN=====" << endl;
+                                        cout << "======= MENU PHONG DAO TAO =========" << endl;
+                                        cout << "======== QUAN LY HOC PHAN ========== " << endl;
+                                         do{
+                                                    cout<< "CHON 0 DE QUAY LAI  ";
+                                                    cin>>quaylai;
+                                                    if (quaylai==0) break;
+                                                    }while (quaylai!=0);
+                                                    system("cls");
+                                        break;
                                     break;
                                 default:// Nhập sai tác vụ
                                     system("cls");
@@ -431,3 +435,10 @@ int main() {
 
     return 0;
 }
+
+
+
+
+
+
+
