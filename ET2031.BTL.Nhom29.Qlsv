@@ -55,20 +55,19 @@ public:
         tenhocphan = "xx";
         diemqt = 0;
         diemck = 0;
-        diemhploai1=0;
-        diemhploai2=0;
-        diemhploai3=0;
+        diemhploai1 = 0;
+        diemhploai2 = 0;
+        diemhploai3 = 0;
     }
 
     ~diemhocphan() {}
 
     void nhaptthocphan(){
-        cout << "Nhap ma hoc phan "<<endl;
-       // getline (cin, mahocphan);
-       cin>> mahocphan;
-        cout << "Nhap ten hoc phan ";
-        cin>> tenhocphan;
-      //  getline (cin, tenhocphan);
+        cout << "Nhap ma hoc phan: ";
+        cin >> mahocphan;
+        cin.ignore();  // Clear the newline character left in the buffer
+        cout << "Nhap ten hoc phan: ";
+        getline(cin, tenhocphan);  // Use getline to read the entire line, including spaces
     }
 
     void nhapdiem() {
@@ -84,33 +83,33 @@ public:
         diemhploai3 = 0.5 * diemqt + 0.5 * diemck;
         switch (heso) {
             case 1:
-                diemhp= diemhploai1;
-                cout << "\nDiem ket thuc hoc phan: " << diemhp<<endl ;
+                diemhp = diemhploai1;
+                cout << "\nDiem ket thuc hoc phan: " << diemhp << endl;
                 break;
             case 2:
-                diemhp= diemhploai2;
-                cout << "\nDiem ket thuc hoc phan: " << diemhp<<endl;
+                diemhp = diemhploai2;
+                cout << "\nDiem ket thuc hoc phan: " << diemhp << endl;
                 break;
             case 3:
-                diemhp= diemhploai3;
-                cout << "\nDiem ket thuc hoc phan: " << diemhp<<endl ;
+                diemhp = diemhploai3;
+                cout << "\nDiem ket thuc hoc phan: " << diemhp << endl;
                 break;
         }
     }
 
     void xemdiem() {
-        cout << "Hoc phan: " << tenhocphan << " Ma hoc phan : " << mahocphan <<endl;
-        cout << "Diem hoc phan cua sinh vien : \n";
+        cout << "Hoc phan: " << tenhocphan << " Ma hoc phan: " << mahocphan << endl;
+        cout << "Diem hoc phan cua sinh vien: \n";
         cout << "\nDiem qua trinh: " << diemqt;
         cout << "\nDiem cuoi ki: " << diemck;
-        cout << "\nDiem ket thuc hoc phan: " << diemhp<<endl;
+        cout << "\nDiem ket thuc hoc phan: " << diemhp << endl;
     }
 };
 
 class SinhVien: public person, public diemhocphan {
 private:
     double gpa;
-    static int demsv ;
+    static int demsv;
 
 public:
     int MSSV;
@@ -123,39 +122,40 @@ public:
     }
 
     void inmssv(){
-        cout<<"MSSV "<<MSSV<< " " ;
+        cout << "MSSV " << MSSV << " ";
     }
 };
 
 class GiangVien: public person, public diemhocphan {
 private:
-    static int demgv ;
+    static int demgv;
 
 public:
-    int MSGV ;
+    int MSGV;
 
-    GiangVien () {
+    GiangVien() {
         MSGV = 00000000;
         demgv++;
-        MSGV= 20230000 + demgv ;
+        MSGV = 20230000 + demgv;
     }
+
     void inmsgv(){
-        cout<<"MSGV "<<MSGV<< " " ;
+        cout << "MSGV " << MSGV << " ";
     }
 };
 
 class PhongDaoTao: public person, public diemhocphan {
 private:
-    static int dem ;
+    static int dem;
 
 public:
-   PhongDaoTao () {
-       // Constructor code
+    PhongDaoTao() {
+        // Constructor code
     }
 };
 
-int SinhVien::demsv  = 0;
-int GiangVien::demgv   = 0;
+int SinhVien::demsv = 0;
+int GiangVien::demgv = 0;
 
 int main() {
     int select_person, lua_chon_sinhvien, lua_chon_quanlythongtincanhan, lua_chon_giangvien, lua_chon_phongdaotao;
@@ -163,7 +163,8 @@ int main() {
     SinhVien x;
     GiangVien y;
     PhongDaoTao z;
-//trangchu//
+
+    // trangchu //
     do {
         cout << endl;
         cout << "=========------ HUST ------=========" << endl;
@@ -177,168 +178,165 @@ int main() {
         cin >> select_person;
         system("cls");
         switch (select_person) {
-            case 0: //Thoát chương trình
-                    break;
-            case 1:// Sử dụng chức năng sinh viên
-                    do
-                    {   cout << endl;
-                        cout << "=========------ HUST ------=========" << endl;
-                        cout << "=====PHAN MEM QUAN LY SINH VIEN=====" << endl;
-                        cout << "========= MENU SINH VIEN ===========" << endl;
-                        cout << "1.Quan ly thong tin ca nhan       " << endl;
-                        cout << "2.Xem diem hoc phan       " << endl;
-                        cout << "CHON 0 DE QUAY LAI           " << endl;
-                        cout << "NHAP SO DE CHON TAC VU : ";
-                        cin >> lua_chon_sinhvien;
-                        system("cls");
-                        switch (lua_chon_sinhvien)
-                            {
-                                case 0://Quay lại trang trước
-                                    system("cls");
-                                    break;
-                                case 1://Quản lý thông tin cá nhân sinh viên
-                                    do   {
+            case 0: // Thoát chương trình
+                break;
+            case 1: // Sử dụng chức năng sinh viên
+                do {
+                    cout << endl;
+                    cout << "=========------ HUST ------=========" << endl;
+                    cout << "=====PHAN MEM QUAN LY SINH VIEN=====" << endl;
+                    cout << "========= MENU SINH VIEN ===========" << endl;
+                    cout << "1.Quan ly thong tin ca nhan       " << endl;
+                    cout << "2.Xem diem hoc phan       " << endl;
+                    cout << "CHON 0 DE QUAY LAI           " << endl;
+                    cout << "NHAP SO DE CHON TAC VU : ";
+                    cin >> lua_chon_sinhvien;
+                    system("cls");
+                    switch (lua_chon_sinhvien) {
+                        case 0: // Quay lại trang trước
+                            system("cls");
+                            break;
+                        case 1: // Quản lý thông tin cá nhân sinh viên
+                            do {
+                                cout << endl;
+                                cout << "=========------ HUST ------=========" << endl;
+                                cout << "=====PHAN MEM QUAN LY SINH VIEN=====" << endl;
+                                cout << "========= MENU SINH VIEN ===========" << endl;
+                                cout << "=====QUAN LY THONG TIN CA NHAN=====" << endl;
+                                cout << "1.Nhap thong tin ca nhan       " << endl;
+                                cout << "2.Xem thong tin ca nhan      " << endl;
+                                cout << "CHON 0 DE QUAY LAI           " << endl;
+                                cout << "NHAP SO DE CHON TAC VU : ";
+                                cin >> lua_chon_quanlythongtincanhan;
+                                system("cls");
+                                switch (lua_chon_quanlythongtincanhan) {
+                                    case 0: // Quay lại trang trước
+                                        system("cls");
+                                        break;
+                                    case 1: // Nhập thông tin cá nhân
                                         cout << endl;
                                         cout << "=========------ HUST ------=========" << endl;
                                         cout << "=====PHAN MEM QUAN LY SINH VIEN=====" << endl;
                                         cout << "========= MENU SINH VIEN ===========" << endl;
                                         cout << "=====QUAN LY THONG TIN CA NHAN=====" << endl;
                                         cout << "1.Nhap thong tin ca nhan       " << endl;
+                                        x.nhaptt();
+                                        do {
+                                            cout << "CHON 0 DE QUAY LAI  ";
+                                            cin >> quaylai;
+                                            if (quaylai == 0) break;
+                                        } while (quaylai != 0);
+                                        system("cls");
+                                        break;
+                                    case 2: // Xem thông tin cá nhân
+                                        cout << endl;
+                                        cout << "=========------ HUST ------=========" << endl;
+                                        cout << "=====PHAN MEM QUAN LY SINH VIEN=====" << endl;
+                                        cout << "========= MENU SINH VIEN ===========" << endl;
+                                        cout << "=====QUAN LY THONG TIN CA NHAN=====" << endl;
                                         cout << "2.Xem thong tin ca nhan      " << endl;
-                                        cout << "CHON 0 DE QUAY LAI           " << endl;
-                                        cout << "NHAP SO DE CHON TAC VU : ";
-                                        cin >> lua_chon_quanlythongtincanhan;
+                                        x.inmssv();
+                                        x.hienthitt();
+                                        do {
+                                            cout << "CHON 0 DE QUAY LAI  ";
+                                            cin >> quaylai;
+                                            if (quaylai == 0) break;
+                                        } while (quaylai != 0);
                                         system("cls");
-                                        switch (lua_chon_quanlythongtincanhan)
-                                            {
-                                                case 0://Quay lại trang trước
-                                                    system("cls");
-                                                    break;
-                                                case 1://Nhập thông tin cá nhân
-                                                    cout << endl;
-                                                    cout << "=========------ HUST ------=========" << endl;
-                                                    cout << "=====PHAN MEM QUAN LY SINH VIEN=====" << endl;
-                                                    cout << "========= MENU SINH VIEN ===========" << endl;
-                                                    cout << "=====QUAN LY THONG TIN CA NHAN=====" << endl;
-                                                    cout << "1.Nhap thong tin ca nhan       " << endl;
-                                                   // system("cls");
-                                                    x.nhaptt ();
-                                                    do{
-                                                    cout<< "CHON 0 DE QUAY LAI  ";
-                                                    cin>>quaylai;
-                                                    if (quaylai==0) break;
-                                                    }while (quaylai!=0);
-                                                    system("cls");
-                                                    break;
-                                                case 2://Xem thông tin cá nhân
-                                                    cout << endl;
-                                                    cout << "=========------ HUST ------=========" << endl;
-                                                    cout << "=====PHAN MEM QUAN LY SINH VIEN=====" << endl;
-                                                    cout << "========= MENU SINH VIEN ===========" << endl;
-                                                    cout << "=====QUAN LY THONG TIN CA NHAN=====" << endl;
-                                                    cout << "2.Xem thong tin ca nhan      " << endl;
-                                                  //  system("cls");
-                                                    x.inmssv();
-                                                    x.hienthitt ();
-                                                    do{
-                                                    cout<< "CHON 0 DE QUAY LAI  ";
-                                                    cin>>quaylai;
-                                                    if (quaylai==0) break;
-                                                    }while (quaylai!=0);
-                                                    system("cls");
-                                                    break;
-                                                default:// Nhập sai tác vụ
-                                                    system("cls");
-                                                    cout << "Sai chuc nang, vui long chon lai" << endl;
-                                                break;
-                                            }
-                                    }while(lua_chon_quanlythongtincanhan!=0);
                                         break;
-                                case 2://Xem điểm học phần
-                                        system("cls");
-
-                                        x.xemdiem ();
-                                        break;
-                                default:// Nhập sai tác vụ
+                                    default: // Nhập sai tác vụ
                                         system("cls");
                                         cout << "Sai chuc nang, vui long chon lai" << endl;
                                         break;
-                            }
-
-                    } while (lua_chon_sinhvien != 0);
-                break; //case1
-            case 2:// Sử dụng chức năng giảng viên
-                    do
-                    {
-                        cout << endl;
-                        cout << "=========------ HUST ------=========" << endl;
-                        cout << "=====PHAN MEM QUAN LY SINH VIEN=====" << endl;
-                        cout << "========= MENU GIANG VIEN ==========" << endl;
-                        cout << "1.QUAN LY THONG TIN CA NHAN         " << endl;
-                        cout << "2.NHAP SUA DIEM SINH VIEN           " << endl;
-                        cout << "3.THONG TIN GIANG DAY               " << endl;
-                        cout << "CHON 0 DE QUAY LAI           " << endl;
-                        cout << "NHAP SO DE CHON TAC VU : ";
-                        cin >> lua_chon_giangvien;
-                        system("cls");
-                        switch (lua_chon_giangvien)
-                            {
-                                case 0://Quay lại trang trước
-                                    system("cls");
-                                    break;
-                                case 1://Quản lý thông tin cá nhân giảng viên
-                                    do {
-                                        cout << endl;
-                                        cout << "=========------ HUST ------=========" << endl;
-                                        cout << "=====PHAN MEM QUAN LY SINH VIEN=====" << endl;
-                                        cout << "========= MENU GIANG VIEN ===========" << endl;
-                                        cout << "=====QUAN LY THONG TIN CA NHAN=====" << endl;
-                                        cout << "1.Nhap thong tin ca nhan       " << endl;
-                                        cout << "2.Xem thong tin ca nhan      " << endl;
-                                        cout << "CHON 0 DE QUAY LAI           " << endl;
-                                        cout << "NHAP SO DE CHON TAC VU : ";
-                                        cin >> lua_chon_quanlythongtincanhan;
+                                }
+                            } while (lua_chon_quanlythongtincanhan != 0);
+                            break;
+                        case 2: // Xem điểm học phần
+                            system("cls");
+                            x.xemdiem();
+                            break;
+                        default: // Nhập sai tác vụ
+                            system("cls");
+                            cout << "Sai chuc nang, vui long chon lai" << endl;
+                            break;
+                    }
+                } while (lua_chon_sinhvien != 0);
+                break; // case 1
+            case 2: // Sử dụng chức năng giảng viên
+                do {
+                    cout << endl;
+                    cout << "=========------ HUST ------=========" << endl;
+                    cout << "=====PHAN MEM QUAN LY SINH VIEN=====" << endl;
+                    cout << "========= MENU GIANG VIEN ==========" << endl;
+                    cout << "1.QUAN LY THONG TIN CA NHAN         " << endl;
+                    cout << "2.NHAP SUA DIEM SINH VIEN           " << endl;
+                    cout << "3.THONG TIN GIANG DAY               " << endl;
+                    cout << "CHON 0 DE QUAY LAI           " << endl;
+                    cout << "NHAP SO DE CHON TAC VU : ";
+                    cin >> lua_chon_giangvien;
+                    system("cls");
+                    switch (lua_chon_giangvien) {
+                        case 0: // Quay lại trang trước
+                            system("cls");
+                            break;
+                        case 1: // Quản lý thông tin cá nhân giảng viên
+                            do {
+                                cout << endl;
+                                cout << "=========------ HUST ------=========" << endl;
+                                cout << "=====PHAN MEM QUAN LY SINH VIEN=====" << endl;
+                                cout << "========= MENU GIANG VIEN ===========" << endl;
+                                cout << "=====QUAN LY THONG TIN CA NHAN=====" << endl;
+                                cout << "1.Nhap thong tin ca nhan       " << endl;
+                                cout << "2.Xem thong tin ca nhan      " << endl;
+                                cout << "CHON 0 DE QUAY LAI           " << endl;
+                                cout << "NHAP SO DE CHON TAC VU : ";
+                                cin >> lua_chon_quanlythongtincanhan;
+                                system("cls");
+                                switch (lua_chon_quanlythongtincanhan) {
+                                    case 0: // Quay lại trang trước
                                         system("cls");
-                                        switch (lua_chon_quanlythongtincanhan)
-                                            {
-                                                case 0://Quay lại trang trước
-                                                    system("cls");
-                                                    break;
-                                                case 1://Nhập thông tin cá nhân
-                                                    system("cls");
-                                                    y.nhaptt ();
-                                                    break;
-                                                case 2://Xem thông tin cá nhân
-                                                    system("cls");
-                                                    y.inmsgv();
-                                                    y.hienthitt ();
-                                                    break;
-                                                default:// Nhập sai tác vụ
-                                                    system("cls");
-                                                    cout << "Sai chuc nang, vui long chon lai" << endl;
-                                                break;
-                                            }
-                                    }while(lua_chon_quanlythongtincanhan!=0);
                                         break;
-                                case 2://Nhập điểm học phần sinh viên
-
-                                        cout << endl;
-                                        cout << "=========------ HUST ------=========" << endl;
-                                        cout << "=====PHAN MEM QUAN LY SINH VIEN=====" << endl;
-                                        cout << "========= MENU GIANG VIEN ==========" << endl;
-                                        cout << "======= NHAP DIEM SINH VIEN  =======" << endl;
-                                       // cout << "CHON 0 DE QUAY LAI           " << endl;
-                                        x.nhaptthocphan();
-                                        x.nhapdiem();
-                                        x.xemdiem();
-                                        do{
-                                                    cout<< "CHON 0 DE QUAY LAI  ";
-                                                    cin>>quaylai;
-                                                    if (quaylai==0) break;
-                                                    }while (quaylai!=0);
-                                                    system("cls");
-
+                                    case 1: // Nhập thông tin cá nhân
+                                        system("cls");
+                                        y.nhaptt();
                                         break;
+                                    case 2: // Xem thông tin cá nhân
+                                        system("cls");
+                                        y.inmsgv();
+                                        y.hienthitt();
+                                        break;
+                                    default: // Nhập sai tác vụ
+                                        system("cls");
+                                        cout << "Sai chuc nang, vui long chon lai" << endl;
+                                        break;
+                                }
+                            } while (lua_chon_quanlythongtincanhan != 0);
+                            break;
+                        case 2: // Nhập điểm học phần sinh viên
+                            cout << endl;
+                            cout << "=========------ HUST ------=========" << endl;
+                            cout << "=====PHAN MEM QUAN LY SINH VIEN=====" << endl;
+                            cout << "========= MENU GIANG VIEN ==========" << endl;
+                            cout << "======= NHAP DIEM SINH VIEN  =======" << endl;
+                            x.nhaptthocphan();
+                            x.nhapdiem();
+                            x.xemdiem();
+                            do {
+                                cout << "CHON 0 DE QUAY LAI  ";
+                                cin >> quaylai;
+                                if (quaylai == 0) break;
+                            } while (quaylai != 0);
+                            system("cls");
+                            break;
+                    }
+                } while (lua_chon_giangvien != 0);
+                break;
+            }
+        } while (select_person != 0);
+
+    return 0;
+}
+
                                 case 3://Thông tin giảng dạy của giảng viên
                                         cout << endl;
                                         cout << "=========------ HUST ------=========" << endl;
